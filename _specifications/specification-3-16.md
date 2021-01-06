@@ -1556,9 +1556,9 @@ A server uses the `workDoneToken` to report progress for the specific `textDocum
 
 The token received via the `workDoneToken` property in a request's param literal is only valid as long as the request has not send a response back.
 
-There is no specific client capability signaling whether a client will send a progress token per request. The reason for this is that this is in many clients not a static aspect and might even change for every request instance for the same request type. So the capability is signal on every request instance by the presence of a `workDoneToken` property.
+There is no specific client capability signaling whether a client will send a progress token per request. The reason for this is that this is in many clients not a static aspect and might even change for every request instance for the same request type. So the capability is signalled on every request instance by the presence of a `workDoneToken` property.
 
-To avoid that clients set up a progress monitor user interface before sending a request but the server doesn't actually report any progress a server needs to signal general work done progress reporting support in the corresponding server capability. For the above find references example a server would signal such a support by setting the `referencesProvider` property in the server capabilities as follows:
+To avoid the cases when the clients set up a progress monitor user interface before sending a request but the server doesn't actually report any progress, a server needs to signal general work done progress reporting support in the corresponding server capability. For the above "find references" example a server would signal such support by setting the `referencesProvider` property in the server capabilities as follows:
 
 ```json
 {
